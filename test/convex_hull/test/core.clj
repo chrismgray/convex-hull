@@ -1,5 +1,5 @@
 (ns convex-hull.test.core
-  (:require [convex-hull.pt :as pt])
+  (:require [geom.pt :as pt])
   (:use [convex-hull.core])
   (:use [clojure.test]))
 
