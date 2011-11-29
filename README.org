@@ -1,0 +1,12 @@
+
+* Convex Hull
+
+  This is a collection of algorithms for computing the convex hull of
+  a set of points.
+
+  It is currently at a pre-alpha stage and should not be used.
+  
+* License
+
+  Copyright (C) 2011, Chris Gray. Distributed under the GNU GPL,
+  version 3 or later.
