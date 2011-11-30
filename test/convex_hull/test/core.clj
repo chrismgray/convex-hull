@@ -1,6 +1,8 @@
 (ns convex-hull.test.core
   (:require [geom.pt :as pt])
-  (:use [convex-hull.core])
+  (:use [convex-hull.jarvis-march]
+        [convex-hull.grahams-scan]
+        [convex-hull.chans-algorithm])
   (:use [clojure.test]))
 
 (defn cyclic-equal? [c1 c2]
@@ -15,20 +17,20 @@
         bunch-o-pts (map pt/new-pt (take n (repeatedly rand-fn)) (take n (repeatedly rand-fn)))]
     (shuffle (concat default-ch bunch-o-pts))))
 
-(deftest javis-march
+(deftest march
   (is (cyclic-equal? default-ch
                      (jarvis-march (default-pts 100)))))
 
-(deftest graham-scan
+(deftest scan
   (is (cyclic-equal? default-ch
-                     (graham-scan (default-pts 100)))))
+                     (grahams-scan (default-pts 100)))))
 
-(deftest chan-alg
+(deftest alg
   (is (cyclic-equal? default-ch
                      (chans-algorithm (default-pts 100)))))
 
 (deftest all-equal
-  (is (every? true (for [a1 [jarvis-march graham-scan chans-algorithm]
-                         a2 [jarvis-march graham-scan chans-algorithm]]
+  (is (every? true (for [a1 [jarvis-march grahams-scan chans-algorithm]
+                         a2 [jarvis-march grahams-scan chans-algorithm]]
                      (cyclic-equal? (a1 (default-pts 100))
                                     (a2 (default-pts 100)))))))
