@@ -30,7 +30,7 @@
                      (chans-algorithm (default-pts 100)))))
 
 (deftest all-equal
-  (is (every? true (for [a1 [jarvis-march grahams-scan chans-algorithm]
+  (is (every? true? (for [a1 [jarvis-march grahams-scan chans-algorithm]
                          a2 [jarvis-march grahams-scan chans-algorithm]]
                      (cyclic-equal? (a1 (default-pts 100))
                                     (a2 (default-pts 100)))))))
