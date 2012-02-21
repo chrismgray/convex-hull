@@ -4,7 +4,8 @@
   This is a collection of algorithms for computing the convex hull of
   a set of points.
 
-  It is currently at a pre-alpha stage and should not be used.
+  See the [[http://chrismgray.github.com/posts/convex-hulls/][blog post]] for explanations about the theoretical properties
+  of the algorithms represented here.
   
 * License
 
